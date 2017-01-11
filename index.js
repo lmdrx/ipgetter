@@ -1,9 +1,6 @@
 // App is an invoked instance of express
 const app = require('express')();
-const fetch = require('fetch');
-
 let $port = 3000;
-
 
 // All request to root folder return a JSON msg with the client ip
 app.get('/', (req, res) => {
@@ -17,3 +14,4 @@ app.listen((process.env.PORT || $port), () => {
   console.log('App is up and listening!',
     `Port: ${(process.env.PORT || $port)}`);
 });
+
