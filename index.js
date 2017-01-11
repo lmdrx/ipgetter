@@ -8,7 +8,8 @@ let $port = 3000;
 app.get('/', (req, res) => {
   return res.status(200).json({
     ip: `${ req.headers['x-forwarded-for'] || req.ip }`,
-    otherip: req.ip
+    otherip: req.ip,
+    process: process
   });
 });
 
