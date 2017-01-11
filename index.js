@@ -1,12 +1,13 @@
 // App is an invoked instance of express
 const app = require('express')();
+const fetch = require('fetch');
+
 let $port = 3000;
 
 // All request to root folder return a JSON msg with the client ip
 app.get('/', (req, res) => {
   return res.status(200).json({
-    // port: `${ process.env.PORT  || undefined }`,
-    ip: `${ req.headers['x-forwarded-for'] || req.ip }`
+    ip: `${ req.headers['x-forwarded-for'] }`
   });
 });
 
