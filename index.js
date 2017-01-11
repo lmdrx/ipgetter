@@ -7,7 +7,8 @@ let $port = 3000;
 // All request to root folder return a JSON msg with the client ip
 app.get('/', (req, res) => {
   return res.status(200).json({
-    ip: `${ req.headers['x-forwarded-for'] }`
+    ip: `${ req.headers['x-forwarded-for'] || req.ip }`,
+    otherip: req.ip
   });
 });
 
